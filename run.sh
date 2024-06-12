@@ -32,6 +32,10 @@ opts+=("--network=slirp4netns")
 opts+=("--cap-add")
 opts+=("CAP_NET_RAW")
 
+# Enable Infinite Loop
+opts+=("-e")
+opts+=("ENABLE_INFINITE_LOOP=true")
+
 # Load the Environment Variables into THIS Script
 if [[ -f "./.env" ]]
 then
