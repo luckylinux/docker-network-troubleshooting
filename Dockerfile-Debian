@@ -24,7 +24,7 @@ WORKDIR "${APP_PATH}"
 RUN --mount=type=cache,mode=0777,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,mode=0777,target=/var/lib/apt,sharing=locked \
     apt-get update && \
-    apt-get install --no-install-recommends -y ca-certificates bash curl wget jq net-tools iproute2 bind9-dnsutils nslookup traceroute tcptraceroute iputils-ping && \
+    apt-get install --no-install-recommends -y ca-certificates bash curl wget jq net-tools iproute2 bind9-dnsutils traceroute tcptraceroute iputils-ping && \
     echo "Finished installing base Packages"
 
 # Change Shell
