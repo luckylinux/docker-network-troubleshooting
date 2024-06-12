@@ -5,8 +5,8 @@ You need to first clone the Common https://github.com/luckylinux/container-build
 
 Then Symlink the Directory within this Repository to the "includes" Target:
 ```
-git clone https://github.com/luckylinux/container-registry-tools
-cd container-registry-tools
+git clone https://github.com/luckylinux/docker-network-troubleshooting
+cd docker-network-troubleshooting
 ln -s /path/to/container-build-tools includes
 ```
 
