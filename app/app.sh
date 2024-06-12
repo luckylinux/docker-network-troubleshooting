@@ -62,8 +62,8 @@ echo "======================== Container IPv6 TCP Traceroute Port 443 to debian.
 ## Print External IP Address
 ## Print Network Routes IPv4
 echo "======================== Container Public IP Address ======================"
-ipv4_address=$(curl -4 ifconfig.me)
-ipv6_address=$(curl -6 ifconfig.me)
+ipv4_address=$(curl -q -4 ifconfig.me)
+ipv6_address=$(curl -q -6 ifconfig.me)
 
 echo "Public IPv4 Address: ${ipv4_address}"
 echo "Public IPv6 Address: ${ipv6_address}"
