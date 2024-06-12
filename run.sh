@@ -58,6 +58,7 @@ ${engine} rm --ignore ${containername}
 
 # Run Image with Infinite Loop to prevent it from automatically terminating
 #${engine} run --name=${containername} --env-file "./.env" localhost:5000/local/"${containerimage}"
+echo "Executing: ${engine} run --name=${containername} ${opts[*]} localhost:5000/local/${containerimage}"
 ${engine} run --name=${containername} ${opts[*]} localhost:5000/local/"${containerimage}"
 
 # Open Interactive Shell with Container
