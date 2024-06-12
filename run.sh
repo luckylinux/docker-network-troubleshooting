@@ -28,6 +28,9 @@ opts=()
 # Force to use slirp4netns
 opts+=("--network=slirp4netns")
 
+# Debug Pasta
+# opts+=("--network=pasta:--pcap,/tmp/your.pcap")
+
 # Add Capacilities
 opts+=("--cap-add")
 opts+=("CAP_NET_RAW")
