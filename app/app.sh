@@ -55,7 +55,7 @@ echo "======================== Container IPv4 TCP Traceroute Port 443 to debian.
 
 ## Attempt Traceroute to debian.org
 echo "======================== Container IPv6 TCP Traceroute Port 443 to debian.org  ======================"
-traceroute -T -p 443 debian.org
+traceroute6 -T -p 443 debian.org
 echo "======================== Container IPv6 TCP Traceroute Port 443 to debian.org ======================"
 
 
