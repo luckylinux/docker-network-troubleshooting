@@ -36,6 +36,10 @@ opts+=("CAP_NET_RAW")
 opts+=("-e")
 opts+=("ENABLE_INFINITE_LOOP=true")
 
+# Disable Automatic Test
+opts+=("-e")
+opts+=("ENABLE_AUTOMATIC_TEST=false")
+
 # Load the Environment Variables into THIS Script
 if [[ -f "./.env" ]]
 then
