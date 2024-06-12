@@ -24,6 +24,9 @@ containersconfigfolder="./containers"
 # Options
 opts=()
 
+# Run in the Background
+opts+=("-d")
+
 # Podman 5.x with Pasta doesn't handle Networking Correctly
 # Force to use slirp4netns
 opts+=("--network=slirp4netns")
