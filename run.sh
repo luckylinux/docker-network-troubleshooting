@@ -29,10 +29,24 @@ opts+=("-d")
 
 # Podman 5.x with Pasta doesn't handle Networking Correctly
 # Force to use slirp4netns
-opts+=("--network=slirp4netns")
+#opts+=("--network=slirp4netns")
 
 # Debug Pasta
 # opts+=("--network=pasta:--pcap,/tmp/your.pcap")
+#opts+=("--network=pasta:--ipv6-only,-t,2a06:4004:12c8:ff15::2/80,-t,2a06:4004:12c8:ff15::2/443,-t,2a06:4004:12c8:ff15::2/5001,-u,2a06:4004:12c8:ff15::2/5001")
+#opts+=("--network=pasta:--ipv6-only,--outbound,2a06:4004:12c8:ff15::2")
+#opts+=("--network=pasta:--ipv6-only,-a,2a06:4004:12c8:ff15::2")
+opts+=("--network=pasta:--ipv6-only,-a,2a06:4004:12c8:ff15::2")
+
+# Publish ports
+opts+=("-p")
+opts+=("[2a06:4004:12c8:ff15::2]:80:80/tcp")
+opts+=("-p")
+opts+=("[2a06:4004:12c8:ff15::2]:443:443/tcp")
+opts+=("-p")
+opts+=("[2a06:4004:12c8:ff15::2]:5201:5201/tcp")
+opts+=("-p")
+opts+=("[2a06:4004:12c8:ff15::2]:5201:5201/udp")
 
 # Add Capacilities
 opts+=("--cap-add")
