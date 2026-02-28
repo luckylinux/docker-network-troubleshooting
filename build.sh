@@ -43,7 +43,7 @@ opts=()
 
 # Specify local Docker Mirror
 opts+=("--build-arg")
-opts+=("BASE_PREFIX=${BASE_PREFIX}")
+opts+=("DOCKER_MIRROR=${DOCKER_MIRROR}")
 
 # Base Image
 # "Alpine" or "Debian"
