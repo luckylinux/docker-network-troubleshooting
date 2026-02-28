@@ -1,8 +1,8 @@
 # Global Scope Arguments
-ARG BASE_PREFIX=""
+ARG DOCKER_MIRROR=""
 
 # Import Base Image
-FROM ${BASE_PREFIX}alpine:latest
+FROM ${DOCKER_MIRROR}docker.io/library/alpine:latest
 
 ARG TARGETPLATFORM
 #ARG BUILDPLATFORM
