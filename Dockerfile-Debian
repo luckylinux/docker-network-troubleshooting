@@ -1,4 +1,8 @@
-FROM debian:testing
+# Global Scope Arguments
+ARG BASE_PREFIX=""
+
+# Import Base Image
+FROM ${BASE_PREFIX}debian:latest
 
 ARG TARGETPLATFORM
 #ARG BUILDPLATFORM
@@ -16,15 +20,12 @@ WORKDIR "${APP_PATH}"
 # Copy Sources
 COPY app/ "${APP_PATH}"
 
-# Change Workdir Back to App Folder
-WORKDIR "${APP_PATH}"
-
 # Update Sources
 # Install other Dependencies / recommended Packages
 RUN --mount=type=cache,mode=0777,target=/var/cache/apt,sharing=locked \
-    --mount=type=cache,mode=0777,target=/var/lib/apt,sharing=locked \
-    apt-get update && \
-    apt-get install --no-install-recommends -y ca-certificates bash curl wget jq net-tools iproute2 bind9-dnsutils traceroute tcptraceroute iputils-ping iperf3 tcpdump && \
+    --mount=type=cache,mode=0777,target=/var/lib/apt,sharing=locked \ 
+    apt-get update && \ 
+    apt-get -y install ca-certificates bash curl wget coreutils jq net-tools iproute2 traceroute tcptraceroute iputils-ping iperf3 tcpdump libcap2-bin && \
     echo "Finished installing base Packages"
 
 # Change Shell

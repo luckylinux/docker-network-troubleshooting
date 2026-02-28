@@ -1,4 +1,8 @@
-FROM alpine:latest
+# Global Scope Arguments
+ARG BASE_PREFIX=""
+
+# Import Base Image
+FROM ${BASE_PREFIX}alpine:latest
 
 ARG TARGETPLATFORM
 #ARG BUILDPLATFORM
@@ -22,9 +26,8 @@ COPY app/ "${APP_PATH}"
 RUN --mount=type=cache,mode=0777,target=/var/cache/apk,sharing=locked \
     --mount=type=cache,mode=0777,target=/var/lib/apk,sharing=locked \ 
     apk update && \ 
-    apk add ca-certificates bash curl wget shadow shadow-subids shadow-login e2fsprogs-extra coreutils jq net-tools iproute2 bind-tools traceroute tcptraceroute iputils-ping iperf3 tcpdump && \
+    apk add ca-certificates bash curl wget shadow shadow-subids shadow-login e2fsprogs-extra coreutils jq net-tools iproute2 bind-tools traceroute tcptraceroute iputils-ping iperf3 tcpdump libcap2 && \
     echo "Finished installing base Packages"
-
 
 # Change Shell
 RUN chsh -s /bin/bash root
